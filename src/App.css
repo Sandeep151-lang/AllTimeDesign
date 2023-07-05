@@ -1,38 +1,373 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* .header {
+  border: 1px solid gray;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  padding: 0em 0;
+  margin: 0em;
+  background-color: rgb(117, 113, 113);
+}
+
+.main-header {
+  position: relative;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%,50%);
+  width: 30%;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+.left {
+  padding: 0 2em;
+  border-left: 1px solid gray;
+  cursor: pointer;
+}
+
+.task {
+  padding: 0 5px;
+}
+
+.task-count {
+  margin: 0px 5px;
+}
+
+.added-task {
+  padding: 5%;
+}
+
+input[type="text"] {
+  padding: 5px 20px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+.date {
+  padding: 0em;
+  margin: 0em;
+}
+
+.date-time {
+  display: flex;
+  justify-content: space-around;
+}
+
+.assign-user {
+  margin: 5%;
+}
+
+.button-part {
+  display: flex;
+  justify-content: end;
+  margin-right: 16%;
+  margin-bottom: 10px;
+}
+
+.save-btn {
+  margin: 0px 5px;
+  background-color: lightgreen;
+  padding: 7px 30px;
+  border-radius: 3px;
+  border-color: lightgreen;
   color: white;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.cancel-btn {
+  margin: 0px 5px;
+  background-color: white;
+  padding: 5px 20px;
+  border-radius: 3px;
+  border-color: black;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+img {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+.added-list {
+  display: flex;
+  margin: 10px;
+}
+
+.sub-list {
+  margin: 0px 10px;
+}
+h3 {
+  padding: 0em;
+  margin: 0em 5px;
+  font-size: medium;
+}
+
+p {
+  padding: 0em;
+  margin: 0em 5px;
+  font-size: 12px;
+  color: gray;
+}
+
+.edit{
+  
+} */
+html {
+  font-size: 62.5%;
+}
+
+.listBox {
+  /* position: relative; */
+  box-sizing: border-box;
+  border: 1px solid #e5e5e5;
+  /* border: 1px solid red; */
+  /* width: 379px; */
+  height: 100%;
+  position: relative;
+  width: 368px;
+  /* height: 311px; */
+  left: 276px;
+  margin-top: 5%;
+  margin-left: 5%;
+  top: calc(50% - 311px / 2 - 399.5px);
+}
+.box {
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 1px solid #e5e5e5;
+  background: rgba(237, 247, 252, 1);
+
+  position: relative;
+  width: 368px;
+  height: 311px;
+  left: 276px;
+  margin-top: 5%;
+  margin-left: 5%;
+  top: calc(50% - 311px / 2 - 399.5px);
+  /* position: relative;
+  box-sizing: border-box; */
+  /* border: 1px solid red; */
+
+  /* width: 379px;
+  height: 311px; */
+}
+.task-header {
+  /* width: 379px; */
+  height: 35px;
+  display: flex;
+  /* border-bottom: 1px solid red; */
+  border-bottom: 1px solid #e5e5e5;
+
+  border-radius: 2px;
+  background: rgba(249, 249, 250, 1);
+  justify-content: space-between;
+}
+.task-header > p {
+  /* margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 250px;
+  width: 37px;
+  height: 16px;
+  stroke-width: 1px;
+  line-height: 16px; */
+  margin-left: 5px;
+  top: 261px;
+  left: 287px;
+  width: 119px;
+  height: 26px;
+  overflow: hidden;
+  font-family: Segoe UI;
+  font-size: 14px;
+  text-align: left;
+  line-height: 16px;
+  color: #262e39;
+  /* letter-spacing: 1px; */
+}
+
+.task-header > span {
+  height: 35px;
+  width: 7px;
+}
+.add-section {
+  /* border-left: 1px solid red; */
+  border-left: 1px solid #e5e5e5;
+}
+
+.add-icon {
+  /* margin-bottom: 10px; */
+  /* margin-top: 10px; */
+  margin: 10px;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+label {
+  top: 261px;
+  left: 287px;
+  width: 119px;
+  height: 26px;
+  overflow: hidden;
+  font-family: Segoe UI;
+  font-size: 14px;
+  text-align: left;
+  line-height: 16px;
+  color: #262e39;
+}
+
+input {
+  width: 345px;
+  height: 31px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #e5e5e5;
+  background: rgba(255, 255, 255, 1);
+}
+
+input[type="text"] {
+  font-family: Segoe UI;
+  font-size: 14px;
+  text-align: left;
+  line-height: 16px;
+  color: #262e39;
+}
+
+.date-time {
+  display: flex;
+  justify-content: space-around;
+}
+
+.date {
+  width: 168px;
+  height: 34px;
+}
+
+.time {
+  width: 168px;
+  cursor: pointer;
+}
+
+.task-set {
+  padding: 5px;
+}
+
+.cancel-btn {
+  /* top: 480px;
+	left: 492px; */
+  width: 60px;
+  height: 26px;
+  overflow: hidden;
+  font-family: Segoe UI;
+  font-size: 14px;
+  text-align: left;
+  line-height: 16px;
+  color: #262e39;
+  cursor: pointer;
+  border: none;
+  background-color: rgba(237, 247, 252, 1);
+}
+
+.save-btn {
+  /* top: 474px;
+	left: 552px; */
+  margin-right: 13px;
+  margin-left: 5px;
+  width: 80px;
+  height: 29px;
+  -ms-border-radius: 14.5px;
+  -o-border-radius: 14.5px;
+  -moz-border-radius: 14.5px;
+  -webkit-border-radius: 14.5px;
+  border-radius: 14.5px;
+  border: 1px solid #104fcc;
+  background: rgba(20, 99, 255, 1);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.btn-section {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete {
+  cursor: pointer;
+  top: 0px;
+  left: 0px;
+  width: 16px;
+  height: 16px;
+  background: rgba(255, 255, 255, 1);
+  margin-left: 5px;
+}
+
+img {
+  margin-left: 5px;
+  margin-top: 10px;
+  width: 27px;
+  height: 27px;
+  -ms-border-radius: 13.5px / 13.5px;
+  -o-border-radius: 13.5px / 13.5px;
+  -moz-border-radius: 13.5px / 13.5px;
+  -webkit-border-radius: 13.5px / 13.5px;
+  border-radius: 13.5px / 13.5px;
+  background: rgba(90, 153, 227, 1);
+}
+
+.added-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-task-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sub-list {
+  margin: 0px 10px;
+}
+
+.task-date {
+  margin: 0em;
+  padding: 0em;
+  width: 73.5px;
+  height: 20.5px;
+  overflow: hidden;
+  font-family: Segoe UI;
+  font-size: 11px;
+  text-align: left;
+  /* line-height: 13px; */
+  color: #d0021b;
+}
+
+.task-msg {
+  padding: 0em;
+  margin: 0em;
+  /* top: 259px;
+	left: 327px; */
+  width: 78px;
+  height: 26px;
+  overflow: hidden;
+  font-family: Segoe UI;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  /* line-height: 16px; */
+  color: #262e39;
+  /* font-size: medium; */
+}
+
+.edit {
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 5px;
+  margin-top: 10px;
+  /* width: 16px;
+	height: 16px; */
+  background: rgba(255, 255, 255, 1) !important;
 }
