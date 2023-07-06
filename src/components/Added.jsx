@@ -33,10 +33,15 @@ const Added = ({
   const companyId = `company_0f8d040401d14916bc2430480d7aa0f8`
 
   const addTask = async () => {
+    const a = time.split(':'); // split it at the colons
+
+// minutes are worth 60 seconds. Hours are worth 60 minutes.
+const seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60; 
+
     const payload = {
       assigned_user: selectedOption?.value,
       task_date: date,
-      task_time: 0,
+      task_time: seconds,
       is_completed: 0,
       time_zone: 19800,
       task_msg: description,
@@ -103,6 +108,8 @@ const Added = ({
             onChange={(e) => setTime(e?.target?.value)}
           />
         </div>
+
+        <label for="css" className="label">Assign User</label>
         <Select
           className="select-box"
         //   defaultValue={selectedOption}
