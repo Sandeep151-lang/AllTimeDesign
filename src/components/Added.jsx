@@ -50,7 +50,7 @@ const Added = ({
         { headers: headers }
       )
 
-      if (res.status === 500 || res.data.code === 202) {
+      if (res.data.code === 201 || res.data.code === 202) {
         setAddOpen(false)
       }
     } catch (error) {
