@@ -6,7 +6,7 @@ import axios from "axios"
 
 const Task = () => {
   const [description, setDescription] = useState()
-  const [date, setDate] = useState()
+  const [date, setDate] = useState(null)
   const [time, setTime] = useState()
   const [user, setUser] = useState([])
   const [id, setId] = useState()
@@ -21,7 +21,6 @@ const Task = () => {
     "Content-Type": "application/json",
   }
 
-  
   const companyId = `company_0f8d040401d14916bc2430480d7aa0f8`
 
   const getUSer = async () => {
@@ -52,7 +51,7 @@ const Task = () => {
     <div className={addOpen ? "box" : "listBox"}>
       <div className="task-header">
         <p>
-          Tasks <span>1</span>
+          TASKS<span>1</span>
         </p>
         <div className="add-section">
           <AddIcon

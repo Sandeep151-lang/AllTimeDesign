@@ -2,8 +2,8 @@ import React from "react"
 
 const Input = ({ label, placeholder, type = "text", onChange, ...other }) => {
   return (
-    <p>
-      <label for="css" className="label">
+    <>
+      <label for="css" className="labels">
         {label}
       </label>
       <br />
@@ -13,7 +13,7 @@ const Input = ({ label, placeholder, type = "text", onChange, ...other }) => {
         onChange={onChange}
         {...other}
       />
-    </p>
+    </>
   )
 }
 

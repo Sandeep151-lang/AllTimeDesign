@@ -38,11 +38,10 @@ const List = ({
   }, [])
 
   const editList = (e) => {
-
     setDate(e?.task_date)
     setDescription(e?.task_msg)
     setTime(e?.task_time)
-    
+
     // setUser({value:e?.assigned_user, label:e?.assigned_user})
     setAddOpen(true)
     setId(e?.id)
@@ -54,10 +53,7 @@ const List = ({
         return (
           <div className="added-list">
             <div className="image-task-list">
-              <img
-                src={item?.user_icon}
-                alt="Avatar"
-              />
+              <img src={item?.user_icon} alt="Avatar" />
               <div className="sub-list">
                 <p className="task-msg">{item?.task_msg}</p>
                 <p className="task-date">{item?.task_date}</p>
