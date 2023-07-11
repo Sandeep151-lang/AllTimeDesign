@@ -6,7 +6,7 @@ import axios from "axios"
 
 const Task = () => {
   const [description, setDescription] = useState()
-  const [date, setDate] = useState(new Date())
+  const [date, setDate] = useState()
   const [time, setTime] = useState()
   const [user, setUser] = useState([])
   const [id, setId] = useState()
