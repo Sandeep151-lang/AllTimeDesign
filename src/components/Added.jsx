@@ -35,7 +35,6 @@ const Added = ({
   const url = `https://stage.api.sloovi.com/task/lead_65b171d46f3945549e3baa997e3fc4c2`
   const companyId = `company_0f8d040401d14916bc2430480d7aa0f8`
 
-  console.log(time)
   const addTask = async () => {
     //  const a = moment(time).format('hh:mm')
     const a = moment(time).format("hh:mm").split(":") // split it at the colons
@@ -83,7 +82,7 @@ const Added = ({
       console.log(error)
     }
   }
-  console.log(moment(time))
+
   return (
     <>
       <div className="task-set">
@@ -101,9 +100,12 @@ const Added = ({
               Date
             </label>
             <div>
+              {console.log(moment(date).format("DD/MM/YY"), "date")}
               <DatePicker
                 format="DD/MM/YY"
-                value={moment(date)}
+                // value={date==="Invalid date" ? "" : moment(date)}
+                // value={moment(date)}
+                selected={moment(date).format("DD/MM/YY")}
                 placeholder="Select Date"
                 onChange={(date) => setDate(date)}
                 style={{ width: "168px", height: "34px", marginTop: "6px" }}

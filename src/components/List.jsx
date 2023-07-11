@@ -41,7 +41,8 @@ const List = ({
   }, [])
 
   const editList = (e) => {
-    setDate(e?.task_date)
+    // setDate(e?.task_date)
+    setDate(e?.task_date_time_in_utc)
     setDescription(e?.task_msg)
     setTime(e?.task_time)
 
