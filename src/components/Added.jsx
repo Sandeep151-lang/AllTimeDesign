@@ -3,7 +3,7 @@ import Input from "../hooks/Input"
 import Button from "../hooks/Button"
 import axios from "axios"
 import DeleteIcon from "../icons/DeleteIcon"
-import moment from 'moment'
+import moment from "moment"
 import Select from "react-select"
 // import DatePicker from "react-datepicker";
 import { DatePicker, TimePicker } from "antd"
@@ -20,6 +20,7 @@ const Added = ({
   user,
   date,
   description,
+  taksCount,
   time,
 }) => {
   const [selectedOption, setSelectedOption] = useState(null)
@@ -34,16 +35,17 @@ const Added = ({
   const url = `https://stage.api.sloovi.com/task/lead_65b171d46f3945549e3baa997e3fc4c2`
   const companyId = `company_0f8d040401d14916bc2430480d7aa0f8`
 
-  
+  console.log(time)
   const addTask = async () => {
-    const a = moment(time).split(":") // split it at the colons
+    //  const a = moment(time).format('hh:mm')
+    const a = moment(time).format("hh:mm").split(":") // split it at the colons
 
     // minutes are worth 60 seconds. Hours are worth 60 minutes.
     const seconds = +a[0] * 60 * 60 + +a[1] * 60
 
     const payload = {
       assigned_user: selectedOption?.value,
-      task_date: moment(date).format("DD/MM/YY"),
+      task_date: moment(date).format("YYYY-MM-DD"),
       task_time: seconds,
       is_completed: 0,
       time_zone: 19800,
@@ -81,48 +83,29 @@ const Added = ({
       console.log(error)
     }
   }
-
+  console.log(moment(time))
   return (
     <>
       <div className="task-set">
         <Input
-        className="task-description"
+          className="task-description"
           value={description}
           label="Task Description"
           placeholder="Enter task description"
           onChange={(e) => setDescription(e.target.value)}
         />
-        {/* <div className="date-time">
-          <Input
-            value={date}
-            className="time"
-            label="Date"
-            type="date"
-            placeholder="Date"
-            onChange={(e) => setDate(e?.target?.value)}
-          />
 
-          <Input
-            value={time}
-            className="time"
-            label="Time"
-            type="time"
-            onChange={(e) => setTime(e?.target?.value)}
-          />
-        </div> */}
         <div className="date-time">
           <div className="date-side">
-            {/* <DatePicker className="date-picker" placeholderText="DD/MM/YY" selected={startDate} onChange={(date) => setStartDate(date)}/> */}
-
             <label htmlFor="date" className="labelDate">
               Date
             </label>
             <div>
               <DatePicker
                 format="DD/MM/YY"
-                // value={moment(date)}
+                value={moment(date)}
                 placeholder="Select Date"
-                onChange={(date)=>setDate(date)}
+                onChange={(date) => setDate(date)}
                 style={{ width: "168px", height: "34px", marginTop: "6px" }}
               />
             </div>
@@ -132,15 +115,14 @@ const Added = ({
               Time
             </label>
             <div>
-              <TimePicker placeholder="Select Time"
-              className="ant-picker"
-              format='HH:MM'
-              onChange={(time)=> setTime(time) }
+              <TimePicker
+                placeholder="Select Time"
+                className="ant-picker"
+                format="HH:MM"
+                onChange={(time) => setTime(time)}
                 style={{ width: "168px", height: "34px", marginTop: "6px" }}
               />
             </div>
-
-            {/* <DatePicker className="date-picker"/> */}
           </div>
         </div>
 
@@ -181,7 +163,7 @@ const Added = ({
               textAlign: "left",
               lineHeight: "16px",
               color: "#262E39",
-              margin:"5px 0"
+              margin: "5px 0",
             }),
 
             indicatorSeparator: () => {},

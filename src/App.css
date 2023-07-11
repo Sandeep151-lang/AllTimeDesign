@@ -116,8 +116,6 @@ html {
   font-size: 62.5%;
 }
 
-
-
 .date-time {
   margin-bottom: 11px;
   display: flex;
@@ -203,7 +201,6 @@ html {
   margin-top: 5%;
   margin-left: 5%;
   top: calc(50% - 311px / 2 - 399.5px);
-  
 }
 .box {
   box-sizing: border-box;
@@ -300,7 +297,6 @@ input {
 }
 
 input[value] {
-  
   height: 26px;
   overflow: hidden;
   font-family: "Segoe UI";
@@ -309,7 +305,6 @@ input[value] {
   line-height: 16px;
   /* color:#262E39; */
 }
-
 
 ::placeholder {
   /* width: 76px; */
@@ -411,8 +406,8 @@ input[type="text"] {
 }
 
 img {
-  margin-left: 5px;
-  margin-top: 10px;
+  margin-left: 14px;
+  margin-top: 13px;
   width: 27px;
   height: 27px;
   -ms-border-radius: 13.5px / 13.5px;
@@ -434,7 +429,9 @@ img {
 }
 
 .sub-list {
-  margin: 0px 10px;
+  margin: 12px 10px;
+  align-items: center;
+  flex: none;
 }
 
 .task-date {
@@ -446,7 +443,7 @@ img {
   font-family: "Segoe UI";
   font-size: 11px;
   text-align: left;
-  /* line-height: 13px; */
+  line-height: 13px;
   color: #d0021b;
 }
 
@@ -456,13 +453,13 @@ img {
   /* top: 259px;
 	left: 327px; */
   width: 78px;
-  height: 26px;
+  /* height: 26px; */
   overflow: hidden;
-  font-family: " Segoe UI";
+  font-family: "Segoe UI";
   font-size: 14px;
   font-weight: bold;
   text-align: left;
-  /* line-height: 16px; */
+  line-height: 16px;
   color: #262e39;
   /* font-size: medium; */
 }
@@ -470,8 +467,9 @@ img {
 .edit {
   display: flex;
   justify-content: space-evenly;
-  margin-right: 5px;
-  margin-top: 10px;
+  /* margin-right: 18px;
+  margin-top: 5px; */
+  margin: 10px 18px;
   /* width: 16px;
 	height: 16px; */
   background: rgba(255, 255, 255, 1) !important;
@@ -500,10 +498,9 @@ img {
 
 .anticon {
   color: #262e39;
-
 }
 
-.ant-picker .ant-picker-input >input[title] {
+.ant-picker .ant-picker-input > input[title] {
   margin: 0 10px;
 }
 
@@ -514,16 +511,13 @@ img {
   text-align: left;
   overflow: hidden;
   font-family: "Segoe UI";
-  color:#262E39;
-
+  color: #262e39;
 }
 
-.task-description[type="text"]{
+.task-description[type="text"] {
   padding-left: 11px;
   width: 330px;
 }
-
-
 
 .ant-picker-dropdown .ant-picker-time-panel .ant-picker-content {
   width: 166px;

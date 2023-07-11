@@ -6,12 +6,13 @@ import axios from "axios"
 
 const Task = () => {
   const [description, setDescription] = useState()
-  const [date, setDate] = useState(null)
+  const [date, setDate] = useState(new Date())
   const [time, setTime] = useState()
   const [user, setUser] = useState([])
   const [id, setId] = useState()
 
   const [addOpen, setAddOpen] = useState(false)
+  const [taskCount, setTaskCount] = useState()
 
   const headers = {
     Authorization:
@@ -47,11 +48,12 @@ const Task = () => {
     // eslint-disable-next-line
   }, [])
 
+  console.log(date)
   return (
     <div className={addOpen ? "box" : "listBox"}>
       <div className="task-header">
         <p>
-          TASKS<span>1</span>
+          TASKS<span>{taskCount}</span>
         </p>
         <div className="add-section">
           <AddIcon
@@ -80,6 +82,7 @@ const Task = () => {
         />
       ) : (
         <List
+          setTaskCount={setTaskCount}
           setId={setId}
           id={id}
           addOpen={addOpen}

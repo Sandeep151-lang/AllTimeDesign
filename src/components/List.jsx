@@ -3,8 +3,10 @@ import axios from "axios"
 import EditIcon from "../icons/EditIcon"
 import NotificationIcon from "../icons/notification"
 import CheckIcon from "../icons/checkIcon"
+import moment from "moment"
 
 const List = ({
+  setTaskCount,
   setDate,
   setDescription,
   setTime,
@@ -29,6 +31,7 @@ const List = ({
     )
     if (res) {
       setList(res?.data?.results)
+      setTaskCount(res?.data?.results?.length)
     }
   }
 
@@ -56,7 +59,9 @@ const List = ({
               <img src={item?.user_icon} alt="Avatar" />
               <div className="sub-list">
                 <p className="task-msg">{item?.task_msg}</p>
-                <p className="task-date">{item?.task_date}</p>
+                <p className="task-date">
+                  {moment(item?.task_date).format("MM/DD/YYYY")}
+                </p>
               </div>
             </div>
             <div className="edit">
