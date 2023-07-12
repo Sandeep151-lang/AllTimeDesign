@@ -2,6 +2,10 @@ html {
   font-size: 62.5%;
 }
 
+body{
+  background-color: whitesmoke;
+}
+
 .date-time {
   margin-bottom: 11px;
   display: flex;
@@ -73,6 +77,7 @@ html {
 }
 
 .listBox {
+  background-color: white;
   /* position: relative; */
   box-sizing: border-box;
   border: 1px solid #e5e5e5;
