@@ -1,0 +1,11 @@
+
+export  const headers = {
+    Authorization:
+      "Bearer " +
+      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODg0OTc0MjMsIm5iZiI6MTY4ODQ5NzQyMywianRpIjoiZmQxM2FmNjktN2VlYS00YTg1LWFmMTQtOTEzYTYwZmJjNGQ5IiwiaWRlbnRpdHkiOnsibmFtZSI6IlNhcmF2YW5hbiBDIiwiZW1haWwiOiJzbWl0aHdpbGxzMTk4OUBnbWFpbC5jb20iLCJ1c2VyX2lkIjoidXNlcl84YzJmZjIxMjhlNzA0OTNmYTRjZWRkMmNhYjk3YzQ5MiIsImljb24iOiJodHRwOi8vd3d3LmdyYXZhdGFyLmNvbS9hdmF0YXIvY2Y5NGI3NGJkNDFiNDY2YmIxODViZDRkNjc0ZjAzMmI_ZGVmYXVsdD1odHRwcyUzQSUyRiUyRnMzLnNsb292aS5jb20lMkZhdmF0YXItZGVmYXVsdC1pY29uLnBuZyIsImJ5X2RlZmF1bHQiOiJvdXRyZWFjaCJ9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.WTMcXVJgiJ6tpZ53vzv2Wusx6qNhADGqd8tHIdymfDQ",
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  } 
+
+
+  export const companyId = `company_0f8d040401d14916bc2430480d7aa0f8`

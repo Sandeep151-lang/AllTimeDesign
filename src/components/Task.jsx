@@ -3,6 +3,7 @@ import AddIcon from "../icons/addIcon"
 import Added from "./Added"
 import List from "./List"
 import axios from "axios"
+import { headers ,companyId} from "../hooks/common"
 
 const Task = () => {
   const [description, setDescription] = useState()
@@ -10,19 +11,14 @@ const Task = () => {
   const [time, setTime] = useState()
   const [user, setUser] = useState([])
   const [id, setId] = useState()
+  const [userDefault, setUserDefault] = useState()
 
   const [addOpen, setAddOpen] = useState(false)
   const [taskCount, setTaskCount] = useState()
+  const [dateUpdate, setDateUpdate] = useState()
+  const [update, setUpdate] = useState()
 
-  const headers = {
-    Authorization:
-      "Bearer " +
-      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODg0OTc0MjMsIm5iZiI6MTY4ODQ5NzQyMywianRpIjoiZmQxM2FmNjktN2VlYS00YTg1LWFmMTQtOTEzYTYwZmJjNGQ5IiwiaWRlbnRpdHkiOnsibmFtZSI6IlNhcmF2YW5hbiBDIiwiZW1haWwiOiJzbWl0aHdpbGxzMTk4OUBnbWFpbC5jb20iLCJ1c2VyX2lkIjoidXNlcl84YzJmZjIxMjhlNzA0OTNmYTRjZWRkMmNhYjk3YzQ5MiIsImljb24iOiJodHRwOi8vd3d3LmdyYXZhdGFyLmNvbS9hdmF0YXIvY2Y5NGI3NGJkNDFiNDY2YmIxODViZDRkNjc0ZjAzMmI_ZGVmYXVsdD1odHRwcyUzQSUyRiUyRnMzLnNsb292aS5jb20lMkZhdmF0YXItZGVmYXVsdC1pY29uLnBuZyIsImJ5X2RlZmF1bHQiOiJvdXRyZWFjaCJ9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.WTMcXVJgiJ6tpZ53vzv2Wusx6qNhADGqd8tHIdymfDQ",
-    Accept: "application/json",
-    "Content-Type": "application/json",
-  }
-
-  const companyId = `company_0f8d040401d14916bc2430480d7aa0f8`
+ 
 
   const getUSer = async () => {
     try {
@@ -34,8 +30,8 @@ const Task = () => {
       )
 
       const users = res?.data?.results?.data.map((user) => ({
-        label: `${user?.first} ${user?.last}`,
-        value: user?.user_id,
+        label: user?.name,
+        value: user?.name,
       }))
       setUser(users)
     } catch (error) {
@@ -48,7 +44,6 @@ const Task = () => {
     // eslint-disable-next-line
   }, [])
 
-  console.log(date)
   return (
     <div className={addOpen ? "box" : "listBox"}>
       <div className="task-header">
@@ -67,6 +62,12 @@ const Task = () => {
       </div>
       {addOpen ? (
         <Added
+          setUpdate={setUpdate}
+          update={update}
+          dateUpdate={dateUpdate}
+          setDateUpdate={setDateUpdate}
+          userDefault={userDefault}
+          setUserDefault={setUserDefault}
           setId={setId}
           id={id}
           setAddOpen={setAddOpen}
@@ -75,13 +76,16 @@ const Task = () => {
           setDate={setDate}
           date={date}
           setTime={setTime}
-          time={time}
+          times={time}
           setUser={setUser}
           user={user}
           addOpen={addOpen}
         />
       ) : (
         <List
+          setUpdate={setUpdate}
+          setDateUpdate={setDateUpdate}
+          setUserDefault={setUserDefault}
           setTaskCount={setTaskCount}
           setId={setId}
           id={id}

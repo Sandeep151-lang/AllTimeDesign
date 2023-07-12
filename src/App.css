@@ -408,3 +408,9 @@ img {
 .ant-picker-dropdown .ant-picker-time-panel .ant-picker-content {
   width: 166px;
 }
+
+.edit-icons{
+  margin: 0 5px;
+  cursor: pointer;
+
+}
