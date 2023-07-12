@@ -45,7 +45,7 @@ const Task = () => {
   }, [])
 
   return (
-    <div className={addOpen ? "box" : "listBox"}>
+    <div className={addOpen ? "box" : taskCount===0 ? "no-list" : "listBox"}>
       <div className="task-header">
         <p>
           TASKS<span>{taskCount}</span>

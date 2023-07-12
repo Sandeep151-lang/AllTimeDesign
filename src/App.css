@@ -75,7 +75,18 @@ body{
   line-height: 16px;
   color: #262e39;
 }
-
+.no-list{
+  height: 35px;
+  background-color: white;
+  box-sizing: border-box;
+  border: 1px solid #e5e5e5;
+  position: relative;
+  width: 368px;
+  left: 276px;
+  margin-top: 5%;
+  margin-left: 5%;
+  top: calc(50% - 311px / 2 - 399.5px);
+}
 .listBox {
   background-color: white;
   /* position: relative; */
@@ -419,3 +430,5 @@ img {
   cursor: pointer;
 
 }
+
+
