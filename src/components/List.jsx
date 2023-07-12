@@ -4,7 +4,7 @@ import EditIcon from "../icons/EditIcon"
 import NotificationIcon from "../icons/notification"
 import CheckIcon from "../icons/checkIcon"
 import moment from "moment"
-import { headers,companyId } from "../hooks/common"
+import { headers, companyId } from "../hooks/common"
 
 const List = ({
   setUpdate,
@@ -18,7 +18,7 @@ const List = ({
   setId,
 }) => {
   const [list, setList] = useState([])
- 
+
   const getList = async () => {
     const res = await axios.get(
       `https://stage.api.sloovi.com/task/lead_65b171d46f3945549e3baa997e3fc4c2?company_id=${companyId}`,

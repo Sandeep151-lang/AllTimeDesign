@@ -1,6 +1,6 @@
 import React from "react"
 
-const EditIcon = ({ onClick ,className}) => {
+const EditIcon = ({ onClick, className }) => {
   return (
     <svg
       width={16}

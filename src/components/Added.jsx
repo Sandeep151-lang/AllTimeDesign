@@ -6,7 +6,7 @@ import DeleteIcon from "../icons/DeleteIcon"
 import Select from "react-select"
 import { DatePicker, TimePicker } from "antd"
 import dayjs from "dayjs"
-import { headers,companyId } from "../hooks/common"
+import { headers, companyId } from "../hooks/common"
 
 const Added = ({
   setUpdate,
@@ -28,13 +28,12 @@ const Added = ({
 }) => {
   const [selectedOption, setSelectedOption] = useState(null)
 
-
-
   const url = `https://stage.api.sloovi.com/task/lead_65b171d46f3945549e3baa997e3fc4c2`
-  
+
   const addTask = async () => {
-   
-    const a = dayjs(dateUpdate).format("hh:mm").split(":") || times.split(":") // split it at the colons
+    const a = !dateUpdate
+      ? times.split(":")
+      : dayjs(dateUpdate).format("hh:mm").split(":") // split it at the colons
     const seconds = +a[0] * 60 * 60 + +a[1] * 60
 
     const payload = {

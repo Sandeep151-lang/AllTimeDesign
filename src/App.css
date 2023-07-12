@@ -2,7 +2,7 @@ html {
   font-size: 62.5%;
 }
 
-body{
+body {
   background-color: whitesmoke;
 }
 
@@ -75,7 +75,7 @@ body{
   line-height: 16px;
   color: #262e39;
 }
-.no-list{
+.no-list {
   height: 35px;
   background-color: white;
   box-sizing: border-box;
@@ -425,10 +425,7 @@ img {
   width: 166px;
 }
 
-.edit-icons{
+.edit-icons {
   margin: 0 5px;
   cursor: pointer;
-
 }
-
-

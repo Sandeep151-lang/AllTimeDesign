@@ -3,11 +3,11 @@ import AddIcon from "../icons/addIcon"
 import Added from "./Added"
 import List from "./List"
 import axios from "axios"
-import { headers ,companyId} from "../hooks/common"
+import { headers, companyId } from "../hooks/common"
 
 const Task = () => {
   const [description, setDescription] = useState()
-  const [date, setDate] = useState()
+  const [date, setDate] = useState(new Date())
   const [time, setTime] = useState()
   const [user, setUser] = useState([])
   const [id, setId] = useState()
@@ -17,8 +17,6 @@ const Task = () => {
   const [taskCount, setTaskCount] = useState()
   const [dateUpdate, setDateUpdate] = useState()
   const [update, setUpdate] = useState()
-
- 
 
   const getUSer = async () => {
     try {
@@ -45,7 +43,7 @@ const Task = () => {
   }, [])
 
   return (
-    <div className={addOpen ? "box" : taskCount===0 ? "no-list" : "listBox"}>
+    <div className={addOpen ? "box" : taskCount === 0 ? "no-list" : "listBox"}>
       <div className="task-header">
         <p>
           TASKS<span>{taskCount}</span>
