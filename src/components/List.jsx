@@ -6,13 +6,7 @@ import CheckIcon from "../icons/checkIcon"
 import moment from "moment"
 import { headers, companyId } from "../hooks/common"
 
-const List = ({
-  setTaskCount,
-  append,
-  setAddOpen,
-  setDescription,
-  setId,
-}) => {
+const List = ({ setTaskCount, append, setAddOpen, setDescription, setId }) => {
   const [list, setList] = useState([])
 
   const getList = async () => {
@@ -32,7 +26,6 @@ const List = ({
   }, [])
 
   const editList = (e) => {
- 
     append({ test: "test" })
     setDescription(e)
     setAddOpen(true)

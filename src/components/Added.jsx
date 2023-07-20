@@ -1,4 +1,4 @@
-import React, { useEffect} from "react"
+import React, { useEffect } from "react"
 import Input from "../hooks/Input"
 import Button from "../hooks/Button"
 import axios from "axios"
@@ -20,36 +20,36 @@ const Added = ({
   user,
   description,
 }) => {
-  const {  register, setValue, watch, handleSubmit } = useForm()
+  const { register, setValue, watch, handleSubmit } = useForm()
 
   const url = `https://stage.api.sloovi.com/task/lead_65b171d46f3945549e3baa997e3fc4c2`
 
   const addTask = async (values) => {
-    const {test} = values
-
+    const { test } = values
+    console.log(test)
     const times = test[index].time
-    const a =  times.split(":")
+    const a = times.split(":")
     const seconds = +a[0] * 60 * 60 + +a[1] * 60
 
     const payload = {
-      assigned_user: test[index]?.assign_user?.value ,
-      task_date:dayjs(test[index]?.date).format('YYYY-MM-DD'),
+      assigned_user: test[index]?.assign_user?.value,
+      task_date: dayjs(test[index]?.date).format("YYYY-MM-DD"),
       task_time: seconds,
       is_completed: 0,
       time_zone: 19800,
       task_msg: test[index]?.description,
     }
     try {
-      const res = await axios[id ? "put" : "post"](
-        id
-          ? `${url}/${id}?company_id=${companyId}`
+      const res = await axios[test[index]?._id ? "put" : "post"](
+        test[index]._id
+          ? `${url}/${test[index]._id}?company_id=${companyId}`
           : `${url}?company_id=${companyId}`,
         payload,
         { headers: headers }
       )
 
       if (res.data.code === 201 || res.data.code === 202) {
-        if(test.length===1){
+        if (test.length === 1) {
           setAddOpen(false)
         }
         remove(index)
@@ -77,21 +77,23 @@ const Added = ({
     }
   }
 
-  useEffect(()=>{
-if(addOpen && description){
-  setValue(`test.${index}.description`,description?.task_msg)
-  setValue(`test.${index}.assign_user`,{value:description?.assigned_user,label:description?.assigned_user})
-  setValue(`test.${index}.date`,dayjs(description?.task_date_time_in_utc) )
-  // setValue(`test.${index}.time`, description?.task_date_time_in_utc)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}
-  },[addOpen,description])
-
+  useEffect(() => {
+    if (addOpen && description) {
+      setValue(`test.${index}.description`, description?.task_msg)
+      setValue(`test.${index}.assign_user`, {
+        value: description?.assigned_user,
+        label: description?.assigned_user,
+      })
+      setValue(`test.${index}.date`, dayjs(description?.task_date_time_in_utc))
+      setValue(`test.${index}._id`, description?.id)
+      // setValue(`test.${index}.time`, description?.task_date_time_in_utc)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [addOpen, description])
 
   return (
     <>
       <div className="task-set">
-       
         <Input
           rest={register(`test.${index}.description`)}
           className="task-description"
@@ -101,7 +103,6 @@ if(addOpen && description){
           onChange={(e) =>
             setValue(`test.${index}.description`, e.target.value)
           }
-       
         />
 
         <div className="date-time">
@@ -110,13 +111,11 @@ if(addOpen && description){
               Date
             </label>
             <div>
-             
               <DatePicker
                 {...register(`test.${index}.date`)}
                 format="DD/MM/YY"
                 value={watch(`test.${index}.date`)}
                 onChange={(date) => {
-              
                   setValue(`test.${index}.date`, date)
                 }}
                 className="date-picker"
@@ -136,7 +135,6 @@ if(addOpen && description){
                 placeholder="Time"
                 value={watch(`test.${index}.time`)}
                 onChange={(e) => {
-                
                   setValue(`test.${index}.time`, e.target.value)
                 }}
                 list="time-options"
@@ -170,10 +168,9 @@ if(addOpen && description){
           <UpdownIcon width="15" className="select-icon" />
           <Select
             {...register(`test.${index}.assign_user`)}
-                value={watch(`test.${index}.assign_user`)}
+            value={watch(`test.${index}.assign_user`)}
             placeholder="User"
             onChange={(opt) => {
-             
               setValue(`test.${index}.assign_user`, opt)
             }}
             options={user}
@@ -220,15 +217,19 @@ if(addOpen && description){
         </div>
       </div>
       <div className="btn-section">
-        {id ? <DeleteIcon onClick={deleteTask} className="delete" /> : <div />}
+        {watch(`test.${index}._id`) ? (
+          <DeleteIcon onClick={deleteTask} className="delete" />
+        ) : (
+          <div />
+        )}
 
         <div>
           <Button
             className="cancel-btn"
             text="Cancel"
-            onClick={() =>{
-              
-              remove(index)}}
+            onClick={() => {
+              remove(index)
+            }}
           />
           <Button
             className="save-btn"

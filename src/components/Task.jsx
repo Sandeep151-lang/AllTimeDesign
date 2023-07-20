@@ -14,11 +14,9 @@ const Task = () => {
   const [addOpen, setAddOpen] = useState(false)
   const [taskCount, setTaskCount] = useState()
 
-  const {  control } = useForm(
-    {
-      // defaultValues: {}; you can populate the fields by this attribute
-    }
-  )
+  const { control } = useForm({
+    // defaultValues: {}; you can populate the fields by this attribute
+  })
   const { fields, append, remove } = useFieldArray({
     control,
     name: "test",
@@ -48,7 +46,6 @@ const Task = () => {
     // eslint-disable-next-line
   }, [])
 
-
   return (
     <div className="task-box">
       <div
@@ -61,9 +58,8 @@ const Task = () => {
           <div className="add-section">
             <AddIcon
               onClick={(e, i) => {
-                
-                  append({ test: "test" })
-              
+                append({ test: "test" })
+
                 setAddOpen(true)
                 // setId()
                 setDescription()
@@ -92,11 +88,11 @@ const Task = () => {
           })
         ) : (
           <List
-          append={append}
-          setId={setId}
-          setDescription={setDescription}
-          setAddOpen={setAddOpen}
-          setTaskCount={setTaskCount}
+            append={append}
+            setId={setId}
+            setDescription={setDescription}
+            setAddOpen={setAddOpen}
+            setTaskCount={setTaskCount}
           />
         )}
       </div>
