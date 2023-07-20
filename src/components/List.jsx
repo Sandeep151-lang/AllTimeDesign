@@ -7,14 +7,10 @@ import moment from "moment"
 import { headers, companyId } from "../hooks/common"
 
 const List = ({
-  setUpdate,
-  setDateUpdate,
-  setUserDefault,
   setTaskCount,
-  setDate,
-  setDescription,
-  setTime,
+  append,
   setAddOpen,
+  setDescription,
   setId,
 }) => {
   const [list, setList] = useState([])
@@ -36,12 +32,9 @@ const List = ({
   }, [])
 
   const editList = (e) => {
-    setUpdate(e?.task_date_time_in_utc)
-    setDate(e?.task_date_time_in_utc)
-    setDescription(e?.task_msg)
-    setDateUpdate(e?.task_date_time_in_utc)
-    setTime(e?.task_date_time_in_utc)
-    setUserDefault({ value: e?.assigned_user, label: e?.assigned_user })
+ 
+    append({ test: "test" })
+    setDescription(e)
     setAddOpen(true)
     setId(e?.id)
   }

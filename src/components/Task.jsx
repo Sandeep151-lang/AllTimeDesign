@@ -4,19 +4,25 @@ import Added from "./Added"
 import List from "./List"
 import axios from "axios"
 import { headers, companyId } from "../hooks/common"
+import { useForm, useFieldArray } from "react-hook-form"
 
 const Task = () => {
   const [description, setDescription] = useState()
-  const [date, setDate] = useState(new Date())
-  const [time, setTime] = useState()
   const [user, setUser] = useState([])
   const [id, setId] = useState()
-  const [userDefault, setUserDefault] = useState()
 
   const [addOpen, setAddOpen] = useState(false)
   const [taskCount, setTaskCount] = useState()
-  const [dateUpdate, setDateUpdate] = useState()
-  const [update, setUpdate] = useState()
+
+  const {  control } = useForm(
+    {
+      // defaultValues: {}; you can populate the fields by this attribute
+    }
+  )
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "test",
+  })
 
   const getUSer = async () => {
     try {
@@ -42,63 +48,58 @@ const Task = () => {
     // eslint-disable-next-line
   }, [])
 
+
   return (
-    <div className={addOpen ? "box" : taskCount === 0 ? "no-list" : "listBox"}>
-      <div className="task-header">
-        <p>
-          TASKS<span>{taskCount}</span>
-        </p>
-        <div className="add-section">
-          <AddIcon
-            onClick={() => {
-              setAddOpen(true)
-              setId()
-              setDescription()
-            }}
-          />
+    <div className="task-box">
+      <div
+        className={addOpen ? "box" : taskCount === 0 ? "no-list" : "listBox"}
+      >
+        <div className="task-header">
+          <p>
+            TASKS<span>{taskCount}</span>
+          </p>
+          <div className="add-section">
+            <AddIcon
+              onClick={(e, i) => {
+                
+                  append({ test: "test" })
+              
+                setAddOpen(true)
+                // setId()
+                setDescription()
+              }}
+            />
+          </div>
         </div>
-      </div>
-      {addOpen ? (
-        <Added
-          setUpdate={setUpdate}
-          update={update}
-          dateUpdate={dateUpdate}
-          setDateUpdate={setDateUpdate}
-          userDefault={userDefault}
-          setUserDefault={setUserDefault}
+        {addOpen ? (
+          fields.map((data, i) => {
+            return (
+              <>
+                <Added
+                  remove={remove}
+                  index={i}
+                  setId={setId}
+                  id={id}
+                  setAddOpen={setAddOpen}
+                  setDescription={setDescription}
+                  description={description}
+                  setUser={setUser}
+                  user={user}
+                  addOpen={addOpen}
+                />
+              </>
+            )
+          })
+        ) : (
+          <List
+          append={append}
           setId={setId}
-          id={id}
-          setAddOpen={setAddOpen}
           setDescription={setDescription}
-          description={description}
-          setDate={setDate}
-          date={date}
-          setTime={setTime}
-          times={time}
-          setUser={setUser}
-          user={user}
-          addOpen={addOpen}
-        />
-      ) : (
-        <List
-          setUpdate={setUpdate}
-          setDateUpdate={setDateUpdate}
-          setUserDefault={setUserDefault}
+          setAddOpen={setAddOpen}
           setTaskCount={setTaskCount}
-          setId={setId}
-          id={id}
-          addOpen={addOpen}
-          setAddOpen={setAddOpen}
-          user={user}
-          setDescription={setDescription}
-          description={description}
-          setDate={setDate}
-          date={date}
-          setTime={setTime}
-          time={time}
-          setUser={setUser}
-        />
-      )}
+          />
+        )}
+      </div>
     </div>
   )
 }
