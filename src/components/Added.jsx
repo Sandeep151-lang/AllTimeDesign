@@ -238,6 +238,7 @@ const Added = ({
           />
         </div>
       </div>
+        <hr/>
     </>
   )
 }

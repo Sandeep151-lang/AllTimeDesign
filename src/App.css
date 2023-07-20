@@ -611,3 +611,10 @@ input[type="time"] {
 /* .ant-picker-dropdown .ant-picker-header >button{
   display: ;
 } */
+
+hr{
+  position: relative;
+  top: 6px;
+  border: 1px solid #e5e5e5;
+	background:rgba(255,255,255,1);
+}
